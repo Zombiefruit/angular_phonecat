@@ -3,16 +3,13 @@
   <head>
     <meta charset="utf-8">
     <title>Angular PhoneCat</title>
-    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
     <script src="bower_components/angular/angular.js"></script>
-    <script src="app.js"></script>
+    <script src="app.module.js"></script>
+    <script src="phone-list/phone-list.module.js"></script>
+    <script src="phone-list/phone-list.component.js"></script>
   </head>
-  <body ng-controller="PhoneListController">
-    <ul>
-      <li ng-repeat="phone in phones">
-        <span>{{phone.name}}</span>
-        <span>{{phone.snippet}}</span>
-      </li>
-    </ul>
+  <body>
+    <phone-list></phone-list>
   </body>
 </html>
