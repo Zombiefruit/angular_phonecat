@@ -1,7 +1,8 @@
-// Define the `phonecatApp` module
-angular.module('phonecatApp', [
-  // ...which depends on the `phoneList` module
-  'phoneList',
-  'phoneDetail',
-  'ngRoute'
-]);
+(function() {
+  angular.module('phonecatApp', ['phoneList', 'ngMaterial', 'ngAnimate'])
+  .config(function($mdThemingProvider) {
+    $mdThemingProvider.theme('docs-dark', 'default')
+      .primaryPalette('yellow')
+      .dark();
+  });
+})();

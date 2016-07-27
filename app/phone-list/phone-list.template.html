@@ -1,35 +1,25 @@
-<div class="container-fluid">
-  <div class="row">
-    <div class="col-md-2">
-      <!--Sidebar content-->
-
-      <p>
-        Search:
-        <input ng-model="$ctrl.query">
-      </p>
-
-      <p>
-        Sort by:
-        <select ng-model="$ctrl.orderProp">
-          <option value="name">Alphabetical</option>
-          <option value="age">Newest</option>
-        </select>
-      </p>
-
+<div ng-cloak layout-gt-sm="row" layout="column">
+  <md-content md-theme="docs-dark" layout-gt-sm="row" layout-padding flex>
+    <!--Sidebar content-->
+    <div>
+      <md-input-container>
+        <label>Search</label>
+        <input type="text" ng-model="$ctrl.query" />
+      </md-input-container>
     </div>
-    <div class="col-md-10">
+  <md-content>
+
       <!--Body content-->
 
-      <ul class="phones">
-        <li ng-repeat="phone in $ctrl.phones | filter:$ctrl.query | orderBy:$ctrl.orderProp" class="thumbnail">
-          <a href="#/phones/{{phone.id}}" class="thumb">
-            <img ng-src="{{phone.imageUrl}}" alt="{{phone.name}}" />
-          </a>
-          <a href="#/phones/{{phone.id}}">{{phone.name}}</a>
-          <p>{{phone.snippet}}</p>
-        </li>
-      </ul>
+      <md-list flex>
+        <md-list-item class="md-3-line" ng-repeat="phone in $ctrl.phones | filter:$ctrl.query" ng-click="null">
+          <div class="md-list-item-text" layout="column">
+            <span>{{phone.name}}</span>
+            <p>{{phone.snippet}}</p>
+          </div>
+        </md-list-item>
+      </md-list>
 
-    </div>
+    </md-content>
   </div>
 </div>
