@@ -6,19 +6,20 @@
     controller: PhoneController
   });
 
-  function PhoneController() {
+  function PhoneController($http) {
     var self = this;
-    self.phones = [
+    self.options = [
       {
-        name: 'Nexus S',
-        snippet: 'Fast just got faster with Nexus S.'
-      }, {
-        name: 'Motorola XOOM™ with Wi-Fi',
-        snippet: 'The Next, Next Generation tablet.'
-      }, {
-        name: 'MOTOROLA XOOM™',
-        snippet: 'The Next, Next Generation tablet.'
+        type: 'name'
+      },
+      {
+        type: 'age'
       }
     ];
+    self.orderProp = 'name';
+
+    $http.get('phones/phones.json').then(function(response) {
+      self.phones = response.data;
+    });
   }
 })();

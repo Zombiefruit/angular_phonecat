@@ -1,5 +1,5 @@
 <div ng-cloak layout-gt-sm="row" layout="column">
-  <md-content md-theme="docs-dark" layout-gt-sm="row" layout-padding flex>
+  <md-contentlayout-gt-sm="row" layout-padding flex>
     <!--Sidebar content-->
     <div>
       <md-input-container>
@@ -7,12 +7,22 @@
         <input type="text" ng-model="$ctrl.query" />
       </md-input-container>
     </div>
+    <div>
+      <md-input-container class="md-padding">
+        <label>Sort By:</label>
+        <md-select ng-model="$ctrl.orderProp">
+          <md-option ng-repeat="option in $ctrl.options" value="{{option.type}}">
+            {{option.type}}
+          </md-option>
+        </md-select>
+      </md-input-container>
+    </div>
   <md-content>
 
       <!--Body content-->
 
       <md-list flex>
-        <md-list-item class="md-3-line" ng-repeat="phone in $ctrl.phones | filter:$ctrl.query" ng-click="null">
+        <md-list-item class="md-3-line" ng-repeat="phone in $ctrl.phones | filter:$ctrl.query | orderBy:$ctrl.orderProp" ng-click="null">
           <div class="md-list-item-text" layout="column">
             <span>{{phone.name}}</span>
             <p>{{phone.snippet}}</p>
