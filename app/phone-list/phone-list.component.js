@@ -3,7 +3,7 @@
   .component('phoneComponent', {
     url: 'phone-list.template.html',
     templateUrl: 'phone-list/phone-list.template.html',
-    controller: PhoneController
+    controller: ['$http', PhoneController]
   });
 
   function PhoneController($http) {

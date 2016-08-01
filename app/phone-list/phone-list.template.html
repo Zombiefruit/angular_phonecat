@@ -21,10 +21,13 @@
 
       <!--Body content-->
 
-      <md-list flex>
-        <md-list-item class="md-3-line" ng-repeat="phone in $ctrl.phones | filter:$ctrl.query | orderBy:$ctrl.orderProp" ng-click="null">
+      <md-list flex class="hover-change">
+        <md-list-item class="md-3-line no-hover" ng-repeat="phone in $ctrl.phones | filter:$ctrl.query | orderBy:$ctrl.orderProp" href="#/phones/{{phone.id}}">
+          <a href="#/phones/{{phone.id}}" class="md-padding">
+            <img ng-src="{{phone.imageUrl}}" alt="{{phone.name}}" class="avatar"/>
+          </a>
           <div class="md-list-item-text" layout="column">
-            <span>{{phone.name}}</span>
+            <a href="#/phones/{{phone.id}}">{{phone.name}}</a>
             <p>{{phone.snippet}}</p>
           </div>
         </md-list-item>
